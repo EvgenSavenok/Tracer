@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TracerSerialization")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+354006dd6aaea6b6e926f666bf6bfdea0856b45b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TracerSerialization")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TracerSerialization")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

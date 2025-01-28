@@ -1,17 +1,37 @@
+using System.Diagnostics;
+
 namespace Tracer;
 
 public class MethodTrace
 {
     public string MethodName { get; }
     public string ClassName { get; }
-    public TimeSpan ExecutionTime { get; }
-    public IReadOnlyList<MethodTrace> InnerMethods { get; }
+    public long ExecutionTime { get; private set; }
+    public IReadOnlyList<MethodTrace> Methods { get; }
 
-    public MethodTrace(string methodName, string className, TimeSpan executionTime, IReadOnlyList<MethodTrace> innerMethods)
+    private readonly Stopwatch _stopwatch;
+
+    public MethodTrace(string methodName, string className)
     {
-        MethodName = methodName ?? throw new ArgumentNullException(nameof(methodName));
-        ClassName = className ?? throw new ArgumentNullException(nameof(className));
-        ExecutionTime = executionTime;
-        InnerMethods = innerMethods ?? throw new ArgumentNullException(nameof(innerMethods));
+        MethodName = methodName;
+        ClassName = className;
+        Methods = new List<MethodTrace>();
+        _stopwatch = new Stopwatch();
+    }
+
+    public void Start()
+    {
+        _stopwatch.Start();
+    }
+
+    public void Stop()
+    {
+        _stopwatch.Stop();
+        ExecutionTime = _stopwatch.ElapsedMilliseconds;
+    }
+
+    public void AddNestedMethod(MethodTrace method)
+    {
+        ((IList<MethodTrace>)Methods).Add(method);
     }
 }

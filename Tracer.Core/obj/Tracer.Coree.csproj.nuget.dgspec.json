@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer\\Tracer.csproj": {}
+    "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Coree\\Tracer.Coree.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer\\Tracer.csproj": {
+    "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Coree\\Tracer.Coree.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer\\Tracer.csproj",
-        "projectName": "Tracer",
-        "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer\\Tracer.csproj",
+        "projectUniqueName": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Coree\\Tracer.Coree.csproj",
+        "projectName": "Tracer.Coree",
+        "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Coree\\Tracer.Coree.csproj",
         "packagesPath": "C:\\Users\\eugen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer\\obj\\",
+        "outputPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Coree\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\eugen\\AppData\\Roaming\\NuGet\\NuGet.Config"

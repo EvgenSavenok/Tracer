@@ -1,36 +1,57 @@
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using Tracer.Contracts;
+using Tracer.Coree.Contracts;
 
 namespace Tracer;
 
 public class Tracer : ITracer
 {
-    private readonly ConcurrentDictionary<int, ThreadTraceBuilder> _threadTraces = new();
+    private readonly ConcurrentDictionary<int, Stack<MethodTrace>> _methodStacks;
+    private readonly ConcurrentDictionary<int, List<MethodTrace>> _threadMethods;
 
+    public Tracer()
+    {
+        _methodStacks = new ConcurrentDictionary<int, Stack<MethodTrace>>();
+        _threadMethods = new ConcurrentDictionary<int, List<MethodTrace>>();
+    }
+    
     public void StartTrace()
     {
-        int threadId = Thread.CurrentThread.ManagedThreadId;
-        var threadTraceBuilder = _threadTraces.GetOrAdd(threadId, id => new ThreadTraceBuilder(id));
-        threadTraceBuilder.StartMethodTrace();
+        var threadId = Thread.CurrentThread.ManagedThreadId;
+        var stack = _methodStacks.GetOrAdd(threadId, _ => new Stack<MethodTrace>());
+
+        var method = new StackTrace().GetFrame(1)?.GetMethod();
+        if (method == null) 
+            return;
+
+        var methodTrace = new MethodTrace(method.Name, method.DeclaringType?.Name!);
+        methodTrace.Start();
+
+        if (stack.Count > 0)
+        {
+            stack.Peek().AddNestedMethod(methodTrace);
+        }
+        else
+        {
+            var methods = _threadMethods.GetOrAdd(threadId, _ => new List<MethodTrace>());
+            methods.Add(methodTrace);
+        }
+
+        stack.Push(methodTrace);
     }
 
     public void StopTrace()
     {
-        int threadId = Thread.CurrentThread.ManagedThreadId;
-        if (_threadTraces.TryGetValue(threadId, out var threadTraceBuilder))
+        var threadId = Thread.CurrentThread.ManagedThreadId;
+        if (_methodStacks.TryGetValue(threadId, out var stack) && stack.Count > 0)
         {
-            threadTraceBuilder.StopMethodTrace();
+            var methodTrace = stack.Pop();
+            methodTrace.Stop();
         }
     }
 
     public TraceResult GetTraceResult()
     {
-        var threadTraces = _threadTraces.Values.Select(builder => builder.BuildThreadTrace()).ToList();
-        return new TraceResult(threadTraces);
+        return new TraceResult(_threadMethods.Select(pair => new ThreadTrace(pair.Key, pair.Value)));
     }
 }

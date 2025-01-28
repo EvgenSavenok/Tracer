@@ -1,14 +1,14 @@
 namespace Tracer;
+
 public class ThreadTrace
 {
     public int ThreadId { get; }
-    public TimeSpan TotalTime { get; }
+    public long TotalExecutionTime => Methods.Sum(m => m.ExecutionTime);
     public IReadOnlyList<MethodTrace> Methods { get; }
 
-    public ThreadTrace(int threadId, TimeSpan totalTime, IReadOnlyList<MethodTrace> methods)
+    public ThreadTrace(int threadId, List<MethodTrace> methods)
     {
         ThreadId = threadId;
-        TotalTime = totalTime;
-        Methods = methods ?? throw new ArgumentNullException(nameof(methods));
+        Methods = new List<MethodTrace>(methods);
     }
 }

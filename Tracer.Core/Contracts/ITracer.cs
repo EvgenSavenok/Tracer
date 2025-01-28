@@ -1,4 +1,4 @@
-namespace Tracer.Contracts;
+namespace Tracer.Coree.Contracts;
 
 public interface ITracer
 {

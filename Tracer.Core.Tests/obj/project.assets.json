@@ -433,6 +433,16 @@
         "build": {
           "build/net6.0/xunit.runner.visualstudio.props": {}
         }
+      },
+      "Tracer.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Tracer.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tracer.Core.dll": {}
+        }
       }
     }
   },
@@ -983,12 +993,18 @@
         "xunit.runner.visualstudio.2.8.2.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "Tracer.Core/1.0.0": {
+      "type": "project",
+      "path": "../Tracer.Core/Tracer.Core.csproj",
+      "msbuildProject": "../Tracer.Core/Tracer.Core.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net9.0": [
       "Microsoft.NET.Test.Sdk >= 17.11.1",
       "NUnit >= 4.3.2",
+      "Tracer.Core >= 1.0.0",
       "coverlet.collector >= 6.0.2",
       "xunit >= 2.9.2",
       "xunit.runner.visualstudio >= 2.8.2"
@@ -1018,7 +1034,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Core\\Tracer.Core.csproj": {
+              "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Core\\Tracer.Core.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

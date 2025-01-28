@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Serialization.Json\\Tracer.Serialization.Json.csproj": {}
+    "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Example\\Tracer.Example.csproj": {}
   },
   "projects": {
     "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Core\\Tracer.Core.csproj": {
@@ -26,6 +26,69 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\eugen\\.dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Example\\Tracer.Example.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Example\\Tracer.Example.csproj",
+        "projectName": "Tracer.Example",
+        "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Example\\Tracer.Example.csproj",
+        "packagesPath": "C:\\Users\\eugen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Example\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\eugen\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\eugen\\RiderProjects\\Tracer\\TracerSerialization\\TracerSerialization.csproj": {
+                "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\TracerSerialization\\TracerSerialization.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -126,14 +189,14 @@
         }
       }
     },
-    "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Serialization.Json\\Tracer.Serialization.Json.csproj": {
+    "C:\\Users\\eugen\\RiderProjects\\Tracer\\TracerSerialization\\TracerSerialization.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Serialization.Json\\Tracer.Serialization.Json.csproj",
-        "projectName": "Tracer.Serialization.Json",
-        "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Serialization.Json\\Tracer.Serialization.Json.csproj",
+        "projectUniqueName": "C:\\Users\\eugen\\RiderProjects\\Tracer\\TracerSerialization\\TracerSerialization.csproj",
+        "projectName": "TracerSerialization",
+        "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\TracerSerialization\\TracerSerialization.csproj",
         "packagesPath": "C:\\Users\\eugen\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Serialization.Json\\obj\\",
+        "outputPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\TracerSerialization\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\eugen\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -148,9 +211,6 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Core\\Tracer.Core.csproj": {
-                "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Core\\Tracer.Core.csproj"
-              },
               "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Serialization.Abstractions\\Tracer.Serialization.Abstractions.csproj": {
                 "projectPath": "C:\\Users\\eugen\\RiderProjects\\Tracer\\Tracer.Serialization.Abstractions\\Tracer.Serialization.Abstractions.csproj"
               }
