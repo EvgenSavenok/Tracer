@@ -24,20 +24,20 @@ public class Tracer : ITracer
         if (method == null) 
             return;
 
-        var methodTrace = new MethodTrace(method.Name, method.DeclaringType?.Name!);
-        methodTrace.Start();
+        var measuredMethod = new MethodTrace(method.Name, method.DeclaringType?.Name!);
+        measuredMethod.Start();
 
         if (stack.Count > 0)
         {
-            stack.Peek().AddNestedMethod(methodTrace);
+            MethodTrace outerMethod = stack.Peek();
+            outerMethod.Methods.Add(measuredMethod);
         }
         else
         {
             var methods = _threadMethods.GetOrAdd(threadId, _ => new List<MethodTrace>());
-            methods.Add(methodTrace);
+            methods.Add(measuredMethod);
         }
-
-        stack.Push(methodTrace);
+        stack.Push(measuredMethod);
     }
 
     public void StopTrace()
